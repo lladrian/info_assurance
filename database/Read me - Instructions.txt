@@ -1,0 +1,77 @@
+Requirements:
+1. Install xampp
+2. Run and Start Apache and MySQL
+
+======================================================
+
+1. Goto localhost/phpmyadmin
+2. Create database entitled "evsu_login"
+3. Then click evsu_login and click Import
+4. At the choose File: find at the folder login/database/evsu_login.sql then click import
+5. Goto google chrome and type at the link localhost/login
+
+
+
+======================================================
+
+IF QR SCANNER IS NOT WORKING, FOLLOW THE STEPS
+
+1. Stop the XAMPP
+2. Goto and open the file
+"C:\xampp\php\php.ini"
+3. Search the phrase GD
+4. Remove the ";" in the following
+;extension=gd
+;[gd]
+5. Restart all running project and XAMMP
+
+
+
+
+
+
+
+
+CREATE TABLE users (
+  Userid int(11) NOT NULL AUTO_INCREMENT,
+  Firstname varchar(255),
+  Lastname varchar(255),
+  Username varchar(255),
+  Password varchar(255),
+  Email varchar(255),
+  qrID varchar(255),
+  date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (Userid)
+);
+
+
+CREATE TABLE update_history (
+  updateID int(11) NOT NULL AUTO_INCREMENT,
+  userID varchar(255),
+  qrID varchar(255) ,
+  date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (updateID)
+);
+
+CREATE TABLE loggedin_history (
+    LoggedinID int NOT NULL AUTO_INCREMENT,
+    UserID varchar(255) NOT NULL,
+    Username varchar(255),
+    OTP varchar(255),
+    login_type int(11),
+    date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (LoggedinID)
+);
+
+CREATE TABLE delete_history (
+  deleteID int(11) NOT NULL AUTO_INCREMENT,
+  Userid int(11) NOT NULL,
+  Firstname varchar(255),
+  Lastname varchar(255),
+  Username varchar(255),
+  Password varchar(255),
+  Email varchar(255),
+  qrID varchar(255),
+  date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (deleteID)
+);
