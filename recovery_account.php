@@ -7,7 +7,15 @@ session_start();
 ?>
 
 <head>
-  
+   <script type="text/javascript">
+        function preventBack() {
+            window.history.forward()
+        };
+        setTimeout("preventBack()", 0);
+        window.onunload - function() {
+            null;
+        }
+    </script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -128,13 +136,21 @@ $("#recovery_form").on( "submit", function(b) {
                       title: '<strong>Email Verifation Success!</strong>',
                       icon: 'success',
                   }).then(() =>{
-                      window.location.href = "change_password.php";
+                      window.location.href = "recovery-code.php";
                   })
             } 
             if (e==2) {
                 Swal.fire({
                       icon: 'error',
                       title: '<strong>Email address doesn`t exist.</strong>',
+                  }).then(() =>{
+                      window.location.reload();
+                  })
+            }
+            if (e==2) {
+                Swal.fire({
+                      icon: 'error',
+                      title: '<strong>ERROR! Failed to send OTP!</strong>',
                   }).then(() =>{
                       window.location.reload();
                   })

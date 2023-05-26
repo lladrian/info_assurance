@@ -36,6 +36,7 @@ require_once '../resources/phpqrcode/qrlib.php';
 					echo 1;			
 					QRcode::png($text, $file, 'L', 7, 2);
 					$_SESSION['status'] = $qrIDText;
+					$_SESSION['fname'] = ucfirst($firstname);
 
 					$sql3 = "SELECT * FROM users WHERE Username ='$username' && Password='$password'";
 				    $result = mysqli_query($conn, $sql3);

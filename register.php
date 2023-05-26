@@ -4,6 +4,15 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html>
+ <script type="text/javascript">
+        function preventBack() {
+            window.history.forward()
+        };
+        setTimeout("preventBack()", 0);
+        window.onunload - function() {
+            null;
+        }
+    </script>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>

@@ -7,7 +7,15 @@ session_start();
 ?>
 
 <head>
-  
+   <script type="text/javascript">
+        function preventBack() {
+            window.history.forward()
+        };
+        setTimeout("preventBack()", 0);
+        window.onunload - function() {
+            null;
+        }
+    </script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

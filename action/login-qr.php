@@ -10,6 +10,7 @@
 
     if ($count == 1) {
         $_SESSION['username'] = $row['Username'];
+        $_SESSION['qrID'] = $row['Username'];
         echo 1;
     } else {
         echo 2;

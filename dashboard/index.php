@@ -95,6 +95,7 @@ if(!isset($_SESSION['username'])) {
                 <button class="dropbtn"><?=$_SESSION['username'];?></button>
                 <div class="dropdown-content">
                     <a href="../action/logout.php">Logout</a>
+                    <a href="./../qrcodes-images/<?php echo $_SESSION['qrID']; ?>.png" download> Download QR CODE </a>
                 </div>
           </div>
         </nav>
@@ -260,7 +261,7 @@ if(!isset($_SESSION['username'])) {
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2023 <a href="#">QR CODE</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2023 <a href="#">EVSU QR CODE</a>.</strong> All rights reserved.
             <!-- <div class="float-right d-none d-sm-inline-block">
                 <b></b> QR Code
             </div> -->

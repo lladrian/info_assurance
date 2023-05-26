@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-    //session_start();
+    session_start();
     //session_destroy();
 
     //include_once 'send_otp.php';
@@ -176,16 +176,15 @@ $("#login_form").submit(function(b){
 </script>
 
 <?php 
-    if (isset($_SESSION['status']) && $_SESSION['status'] != '') {
+    if (isset($_SESSION['status']) && $_SESSION['status'] != '' && isset($_SESSION['fname']) && $_SESSION['fname'] != '') {
 ?>
 <script type="text/javascript">
    
                    Swal.fire({
                       title: '<strong>Registration Success!</strong>',
                       icon: 'success',
-                      html: 'Click the link to download your <b>QR COde</b>, ' +
-                        '<a href="qrcodes-images/<?php echo $_SESSION['status']; ?>.png" download> Download </a>' +
-                        'or you can also download it on your dashboard',
+                      html: 'Hey! <b><?php echo $_SESSION['fname']; ?></b> click'+ '<a href="qrcodes-images/<?php echo $_SESSION['status']; ?>.png" download> here </a>'+'to download your <b>QR CODE</b> '  +
+                        'or you can also download it on your dashboard.',
                       imageUrl: 'qrcodes-images/<?php echo $_SESSION['status']; ?>.png',
                       imageHeight: 200,
                       imageAlt: '<?php echo $_SESSION['status']; ?>',

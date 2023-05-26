@@ -124,7 +124,7 @@ $("#otp_form").submit(function(b){
                       title: '<strong>OTP Verification Success!</strong>',
                       icon: 'success',
                   }).then(() =>{
-                      window.location.href = "dashboard/index.php";
+                      window.location.href = "change_password.php";
                   })
               } if (e==2) {
                 Swal.fire({

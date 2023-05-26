@@ -12,6 +12,7 @@
     if ($count == 1) {
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
         $email = $row['Email'];
+        $qrID = $row['qrID'];
         //$_SESSION['login_user'] = $username;
 
         $OTP_code = rand(111111, 999999);
@@ -23,6 +24,7 @@
         if (mysqli_query($conn, $sql)) {
             echo 1;
             $_SESSION['username'] = $username;
+            $_SESSION['qrID'] = $qrID;
             include_once '../send_otp.php';
         } else {
             echo 3;
