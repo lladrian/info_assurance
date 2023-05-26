@@ -10,7 +10,7 @@
 
     if ($count == 1) {
         $_SESSION['username'] = $row['Username'];
-        $_SESSION['qrID'] = $row['Username'];
+        $_SESSION['qrID'] = $row['qrID'];
         echo 1;
     } else {
         echo 2;

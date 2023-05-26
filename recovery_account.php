@@ -147,7 +147,7 @@ $("#recovery_form").on( "submit", function(b) {
                       window.location.reload();
                   })
             }
-            if (e==2) {
+            if (e==3) {
                 Swal.fire({
                       icon: 'error',
                       title: '<strong>ERROR! Failed to send OTP!</strong>',

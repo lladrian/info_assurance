@@ -11,14 +11,14 @@ if(!isset($_SESSION['username'])) {
 ?>
 
 <head>
-<!--     <script type="text/javascript">
+    <script type="text/javascript">
         $(document).ready(function() {
             window.history.pushState(null, "", window.location.href);
             window.onpopstate = function() {
                 window.history.pushState(null, "", window.location.href);
             };
         });
-    </script> -->
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>QR SYSTEM</title>
@@ -95,7 +95,13 @@ if(!isset($_SESSION['username'])) {
                 <button class="dropbtn"><?=$_SESSION['username'];?></button>
                 <div class="dropdown-content">
                     <a href="../action/logout.php">Logout</a>
+                     <?php
+                      if (isset($_SESSION['qrID']) && $_SESSION['qrID']  != '') {
+                       ?>
                     <a href="./../qrcodes-images/<?php echo $_SESSION['qrID']; ?>.png" download> Download QR CODE </a>
+                    <?php
+                       }
+                    ?>
                 </div>
           </div>
         </nav>
@@ -106,7 +112,7 @@ if(!isset($_SESSION['username'])) {
             <!-- Brand Logo -->
             <a href="index.php" class="brand-link">
                 <img src="../images/evsu.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Qr Code</span>
+                <span class="brand-text font-weight-light">EVSU QR CODE</span>
             </a>
 
             <!-- Sidebar -->
@@ -228,7 +234,7 @@ if(!isset($_SESSION['username'])) {
                                                 echo '<td id="email">' . $row['Email'] . '</td>';
 
                                                 echo '<td id="qr-code" style="text-align:center;">
-                                                        <img class="card-img-top" style="width:100px;" src="./../qrcodes-images/' . $row['qrID'] . '.png  " alt="Card image cap">
+                                                        <img class="card-img-top" style="width:100px;" src="../../qrcodes-images/' . $row['qrID'] . '.png  " alt="Card image cap">
                                                       </td>';
                                              
                                                 echo '<td style="text-align:center;"> ';
